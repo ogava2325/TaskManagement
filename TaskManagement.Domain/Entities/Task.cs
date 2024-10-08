@@ -3,9 +3,8 @@ using TaskStatus = System.Threading.Tasks.TaskStatus;
 
 namespace TaskManagement.Domain.Entities;
 
-public class Task : AuditEntity
+public class Task : AuditableEntity
 {
-    public Guid Id { get; private set; }
     public string Title { get; private set; }
     public string Description { get; private set; }
     public DateTime? DueDate { get; private set; }
