@@ -1,5 +1,10 @@
 using System.Reflection;
+using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using TaskManagement.Application.Behaviors;
+using TaskManagement.Application.Features.User.Commands.Login;
+using TaskManagement.Application.Features.User.Commands.Register;
 
 namespace TaskManagement.Application;
 
@@ -9,6 +14,13 @@ public static class ApplicationServicesRegistration
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        
+        // Register FluentValidation Validators
+        services.AddValidatorsFromAssemblyContaining<LoginCommandValidator>();
+        services.AddValidatorsFromAssemblyContaining<RegisterCommandValidator>();
+
+        // Add pipeline behavior
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         return services;
     }
 }
