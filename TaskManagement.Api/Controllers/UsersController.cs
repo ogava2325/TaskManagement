@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagement.Application.Features.User.Commands.Login;
-using TaskManagement.Application.Features.User.Commands.RegisterUser;
+using TaskManagement.Application.Features.User.Commands.Register;
 
 namespace TaskManagement.Api.Controllers
 {

@@ -2,7 +2,7 @@ using MediatR;
 using TaskManagement.Application.Interfaces.Auth;
 using TaskManagement.Application.Interfaces.Persistence;
 
-namespace TaskManagement.Application.Features.User.Commands.RegisterUser;
+namespace TaskManagement.Application.Features.User.Commands.Register;
 
 public class RegisterCommandHandler(
     IUserRepository userRepository,

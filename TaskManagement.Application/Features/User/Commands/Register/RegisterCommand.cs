@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace TaskManagement.Application.Features.User.Commands.RegisterUser;
+namespace TaskManagement.Application.Features.User.Commands.Register;
 
 public class RegisterCommand : IRequest<Guid>
 {
