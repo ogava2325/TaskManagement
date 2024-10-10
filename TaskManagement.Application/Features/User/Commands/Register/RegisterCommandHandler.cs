@@ -1,6 +1,6 @@
 using MediatR;
 using TaskManagement.Application.Interfaces.Auth;
-using TaskManagement.Application.Interfaces.Persistence;
+using TaskManagement.Domain.Repositories;
 
 namespace TaskManagement.Application.Features.User.Commands.Register;
 

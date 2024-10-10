@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Application.Interfaces;
-using TaskManagement.Application.Interfaces.Persistence;
 using TaskManagement.Domain.Entities;
+using TaskManagement.Domain.Repositories;
 using Task = System.Threading.Tasks.Task;
 
 namespace TaskManagement.Persistence.Repositories;

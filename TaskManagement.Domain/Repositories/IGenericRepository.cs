@@ -1,7 +1,7 @@
 using TaskManagement.Domain.Entities;
 using Task = System.Threading.Tasks.Task;
 
-namespace TaskManagement.Application.Interfaces.Persistence;
+namespace TaskManagement.Domain.Repositories;
 
 public interface IGenericRepository<T> where T : AuditableEntity
 {

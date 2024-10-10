@@ -1,6 +1,6 @@
 using TaskManagement.Domain.Entities;
 
-namespace TaskManagement.Application.Interfaces.Persistence;
+namespace TaskManagement.Domain.Repositories;
 
 public interface IUserRepository : IGenericRepository<User>
 {
