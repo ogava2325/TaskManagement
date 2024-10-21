@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using TaskManagement.Application.Interfaces.Auth;
@@ -20,27 +21,20 @@ public class JwtTokenProvider(IOptions<JwtOptions> options) : IJwtTokeProvider
         var key = Encoding.ASCII.GetBytes(_options.SecretKey);
 
         // Create claims for user identity
-        var claims = new List<Claim>
+        var claims = new[]
         {
-            new Claim("userId", user.Id.ToString()),
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
         };
 
-        // Create an identity from the claims
-        var identity = new ClaimsIdentity(claims);
-
-        // Describe the token settings
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Issuer = _options.Issuer,
-            Audience = _options.Audience,
-            Subject = identity,
-            NotBefore = DateTime.UtcNow, // Ensure NotBefore is set to now
-            Expires = DateTime.UtcNow.AddHours(_options.ExpirationHours),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
-        };
-
-        // Create a JWT security token
-        var token = tokenHandler.CreateJwtSecurityToken(tokenDescriptor);
+        // Create jwt token
+        var token = new JwtSecurityToken(
+            issuer: _options.Issuer,
+            audience: _options.Audience,
+            claims: claims,
+            expires: DateTime.UtcNow.AddHours(_options.ExpirationHours),
+            signingCredentials: new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
+            );
+        
 
         // Write the token as a string and return it
         return tokenHandler.WriteToken(token);
