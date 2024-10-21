@@ -18,8 +18,8 @@ public static class ApplicationServicesRegistration
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         
         // Register FluentValidation Validators
-        services.AddValidatorsFromAssemblyContaining<LoginCommandValidator>();
-        services.AddValidatorsFromAssemblyContaining<RegisterCommandValidator>();
+        services.AddValidatorsFromAssemblyContaining<LoginUserCommandValidator>();
+        services.AddValidatorsFromAssemblyContaining<RegisterUserCommandValidator>();
         services.AddValidatorsFromAssemblyContaining<CreateTaskCommand>();
         services.AddValidatorsFromAssemblyContaining<UpdateTaskCommand>();
         

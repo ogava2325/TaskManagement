@@ -13,17 +13,17 @@ namespace TaskManagement.Api.Controllers
 
         // POST api/<UsersController>
         [HttpPost("register")]
-        public async Task<IActionResult> Register(RegisterCommand command)
+        public async Task<IActionResult> Register(RegisterUserCommand userCommand)
         {
-            var userId = await _mediator.Send(command);
+            var userId = await _mediator.Send(userCommand);
             return Ok(userId);
         }
 
         // POST api/<UsersController>
         [HttpPost("login")]
-        public async Task<IActionResult> Post(LoginCommand command)
+        public async Task<IActionResult> Post(LoginUserCommand userCommand)
         {
-            var token = await _mediator.Send(command);
+            var token = await _mediator.Send(userCommand);
             
             HttpContext.Response.Cookies.Append("tasty-cookies", token);
             

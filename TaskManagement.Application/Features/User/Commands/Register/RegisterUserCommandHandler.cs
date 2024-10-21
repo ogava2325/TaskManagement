@@ -4,15 +4,15 @@ using TaskManagement.Domain.Repositories;
 
 namespace TaskManagement.Application.Features.User.Commands.Register;
 
-public class RegisterCommandHandler(
+public class RegisterUserCommandHandler(
     IUserRepository userRepository,
     IPasswordHasherService passwordHasher) 
-    : IRequestHandler<RegisterCommand, Guid>
+    : IRequestHandler<RegisterUserCommand, Guid>
 {
     private readonly IUserRepository _userRepository = userRepository;
     private readonly IPasswordHasherService _passwordHasher = passwordHasher;
 
-    public async Task<Guid> Handle(RegisterCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
         var hashedPassword = _passwordHasher.Generate(request.Password);
 

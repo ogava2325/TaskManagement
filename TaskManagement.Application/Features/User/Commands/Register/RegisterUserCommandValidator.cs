@@ -2,9 +2,9 @@ using FluentValidation;
 
 namespace TaskManagement.Application.Features.User.Commands.Register;
 
-public class RegisterCommandValidator : AbstractValidator<RegisterCommand>
+public class RegisterUserCommandValidator : AbstractValidator<RegisterUserCommand>
 {
-    public RegisterCommandValidator()
+    public RegisterUserCommandValidator()
     {
         RuleFor(x => x.Email)
             .NotEmpty().WithMessage("Email is required.")

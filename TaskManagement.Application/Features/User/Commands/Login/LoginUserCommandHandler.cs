@@ -4,17 +4,17 @@ using TaskManagement.Domain.Repositories;
 
 namespace TaskManagement.Application.Features.User.Commands.Login;
 
-public class LoginCommandHandler(
+public class LoginUserCommandHandler(
     IUserRepository userRepository,
     IJwtTokeProvider jwtTokeProvider,
     IPasswordHasherService passwordHasher) 
-    : IRequestHandler<LoginCommand, string>
+    : IRequestHandler<LoginUserCommand, string>
 {
     private readonly IUserRepository _userRepository = userRepository;
     private readonly IJwtTokeProvider _jwtTokeProvider = jwtTokeProvider;
     private readonly IPasswordHasherService _passwordHasher = passwordHasher;
 
-    public async Task<string> Handle(LoginCommand request, CancellationToken cancellationToken)
+    public async Task<string> Handle(LoginUserCommand request, CancellationToken cancellationToken)
     {
         var user = await _userRepository.GetByEmailAsync(request.Email);
 
