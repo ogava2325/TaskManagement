@@ -3,6 +3,8 @@ using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using TaskManagement.Application.Behaviors;
+using TaskManagement.Application.Features.Task.Commands.Create;
+using TaskManagement.Application.Features.Task.Commands.Update;
 using TaskManagement.Application.Features.User.Commands.Login;
 using TaskManagement.Application.Features.User.Commands.Register;
 
@@ -18,7 +20,9 @@ public static class ApplicationServicesRegistration
         // Register FluentValidation Validators
         services.AddValidatorsFromAssemblyContaining<LoginCommandValidator>();
         services.AddValidatorsFromAssemblyContaining<RegisterCommandValidator>();
-
+        services.AddValidatorsFromAssemblyContaining<CreateTaskCommand>();
+        services.AddValidatorsFromAssemblyContaining<UpdateTaskCommand>();
+        
         // Add pipeline behavior
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         return services;

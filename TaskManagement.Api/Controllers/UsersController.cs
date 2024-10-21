@@ -24,6 +24,9 @@ namespace TaskManagement.Api.Controllers
         public async Task<IActionResult> Post(LoginCommand command)
         {
             var token = await _mediator.Send(command);
+            
+            HttpContext.Response.Cookies.Append("tasty-cookies", token);
+            
             return Ok(token);
         }
     }
