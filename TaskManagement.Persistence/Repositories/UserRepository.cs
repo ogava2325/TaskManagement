@@ -14,4 +14,14 @@ public class UserRepository(ApplicationDbContext context) : GenericRepository<Us
             .AsNoTracking()
             .FirstOrDefaultAsync(u => u.Email == email);
     }
+
+    public async Task<bool> IsUsernameUnique(string username)
+    {
+        return await _context.Users.AnyAsync(u => u.Username == username) == false;
+    }
+
+    public async Task<bool> IsEmailUnique(string email)
+    {
+        return await _context.Users.AnyAsync(u => u.Email == email) == false;
+    }
 }
