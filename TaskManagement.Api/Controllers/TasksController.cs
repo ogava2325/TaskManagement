@@ -20,7 +20,7 @@ public class TasksController(IMediator mediator) : ControllerBase
         
     // GET: api/<TasksController>
     [HttpGet]
-    public async Task<ActionResult<List<Task>>> Get()
+    public async Task<ActionResult<List<TaskDto>>> Get()
     {
         var query = new GetAllTasksByUserIdQuery
         {
@@ -34,7 +34,7 @@ public class TasksController(IMediator mediator) : ControllerBase
 
     // GET api/<TasksController>/5
     [HttpGet("{id:guid}")]
-    public async Task<ActionResult<Task>> Get(Guid id)
+    public async Task<ActionResult<TaskDetailsDto>> Get(Guid id)
     {
         var query = new GetTaskDetailsQuery(id);
 

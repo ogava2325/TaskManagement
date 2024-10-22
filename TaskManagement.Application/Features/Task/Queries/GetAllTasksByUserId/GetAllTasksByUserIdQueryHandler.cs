@@ -1,18 +1,20 @@
+using AutoMapper;
 using MediatR;
-using TaskManagement.Application.Features.Task.Queries.GetAllTasksByUserId;
 using TaskManagement.Domain.Repositories;
 
-namespace TaskManagement.Application.Features.Task.Queries.GetAllLeaveTypesByUserId;
+namespace TaskManagement.Application.Features.Task.Queries.GetAllTasksByUserId;
 
-public class GetAllTasksByUserIdQueryHandler(ITaskRepository taskRepository)
-    : IRequestHandler<GetAllTasksByUserIdQuery, List<Domain.Entities.Task>>
+public class GetAllTasksByUserIdQueryHandler(
+    ITaskRepository taskRepository, 
+    IMapper mapper)
+    : IRequestHandler<GetAllTasksByUserIdQuery, List<TaskDto>>
 {
     private readonly ITaskRepository _taskRepository = taskRepository;
+    private readonly IMapper _mapper = mapper;
 
-    public async Task<List<Domain.Entities.Task>> Handle(GetAllTasksByUserIdQuery request, CancellationToken cancellationToken)
+    public async Task<List<TaskDto>> Handle(GetAllTasksByUserIdQuery request, CancellationToken cancellationToken)
     {
         var tasks = await _taskRepository.GetTasksByUserIdAsync(request.UserId);
-
-        return tasks.ToList();
+        return _mapper.Map<List<TaskDto>>(tasks);
     }
 }
