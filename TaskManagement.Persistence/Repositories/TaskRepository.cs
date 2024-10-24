@@ -8,11 +8,10 @@ public class TaskRepository(ApplicationDbContext context) : GenericRepository<Ta
 {
     private readonly ApplicationDbContext _context = context;
 
-    public async Task<IEnumerable<Task>> GetTasksByUserIdAsync(Guid userId)
+    public IQueryable<Task> GetTasksByUserId(Guid userId)
     {
-        return await _context.Tasks
+        return _context.Tasks
             .AsNoTracking()
-            .Where(t => t.UserId == userId)
-            .ToListAsync();
+            .Where(t => t.UserId == userId);
     }
 }
