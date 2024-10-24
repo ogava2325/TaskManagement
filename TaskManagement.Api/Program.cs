@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using TaskManagement.Api.Middleware;
 using TaskManagement.Application;
 using TaskManagement.Infrastructure;
@@ -10,7 +11,11 @@ builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddPersistenceServices(builder.Configuration);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
 
 builder.Services.AddCors(options =>
 {

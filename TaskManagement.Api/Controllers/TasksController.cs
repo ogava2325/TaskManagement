@@ -2,6 +2,8 @@ using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TaskManagement.Application.Common.Filtering;
+using TaskManagement.Application.Common.Pagination;
 using TaskManagement.Application.Features.Task.Commands.Create;
 using TaskManagement.Application.Features.Task.Commands.Delete;
 using TaskManagement.Application.Features.Task.Commands.Update;
@@ -20,16 +22,19 @@ public class TasksController(IMediator mediator) : ControllerBase
         
     // GET: api/<TasksController>
     [HttpGet]
-    public async Task<ActionResult<List<TaskDto>>> Get()
+    public async Task<ActionResult<PaginatedList<TaskDto>>> Get([FromQuery] TaskFilter filter, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
     {
         var query = new GetAllTasksByUserIdQuery
         {
-            UserId = GetUserId()
+            UserId = GetUserId(),
+            Filter = filter,
+            PageNumber = pageNumber,
+            PageSize = pageSize
         };
             
-        var tasks = await _mediator.Send(query);
+        var paginatedList = await _mediator.Send(query);
 
-        return tasks;
+        return paginatedList;
     }
 
     // GET api/<TasksController>/5
