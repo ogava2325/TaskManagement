@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Persistence"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Api", "TaskManagement.Api\TaskManagement.Api.csproj", "{6CC6AE01-6535-42B4-B2D8-D623F8D2677E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{95B97560-02E9-431A-9198-F78AA05BCC4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Application.Tests", "TaskManagement.Application.Tests\TaskManagement.Application.Tests.csproj", "{E2515B5D-A56A-46B7-92D2-7AEB2F22AC8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,7 @@ Global
 		{62DD2156-AB05-4DBD-BD67-CA5804A10009} = {42E51C67-31A1-4095-943E-025230A767E0}
 		{0DC027A0-07CF-4BFA-8019-88FA0C27CB52} = {42E51C67-31A1-4095-943E-025230A767E0}
 		{6CC6AE01-6535-42B4-B2D8-D623F8D2677E} = {42E51C67-31A1-4095-943E-025230A767E0}
+		{E2515B5D-A56A-46B7-92D2-7AEB2F22AC8F} = {95B97560-02E9-431A-9198-F78AA05BCC4E}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A5D8B8DB-A51E-4256-B912-67BBD804213E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -45,5 +50,9 @@ Global
 		{6CC6AE01-6535-42B4-B2D8-D623F8D2677E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CC6AE01-6535-42B4-B2D8-D623F8D2677E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CC6AE01-6535-42B4-B2D8-D623F8D2677E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2515B5D-A56A-46B7-92D2-7AEB2F22AC8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2515B5D-A56A-46B7-92D2-7AEB2F22AC8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2515B5D-A56A-46B7-92D2-7AEB2F22AC8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2515B5D-A56A-46B7-92D2-7AEB2F22AC8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

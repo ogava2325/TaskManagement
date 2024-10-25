@@ -1,0 +1,12 @@
+/Users/doryaslav/RiderProjects/TaskManagement/TaskManagement.Domain/bin/Release/net8.0/TaskManagement.Domain.deps.json
+/Users/doryaslav/RiderProjects/TaskManagement/TaskManagement.Domain/bin/Release/net8.0/TaskManagement.Domain.dll
+/Users/doryaslav/RiderProjects/TaskManagement/TaskManagement.Domain/bin/Release/net8.0/TaskManagement.Domain.pdb
+/Users/doryaslav/RiderProjects/TaskManagement/TaskManagement.Domain/obj/Release/net8.0/TaskManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/doryaslav/RiderProjects/TaskManagement/TaskManagement.Domain/obj/Release/net8.0/TaskManagement.Domain.AssemblyInfoInputs.cache
+/Users/doryaslav/RiderProjects/TaskManagement/TaskManagement.Domain/obj/Release/net8.0/TaskManagement.Domain.AssemblyInfo.cs
+/Users/doryaslav/RiderProjects/TaskManagement/TaskManagement.Domain/obj/Release/net8.0/TaskManagement.Domain.csproj.CoreCompileInputs.cache
+/Users/doryaslav/RiderProjects/TaskManagement/TaskManagement.Domain/obj/Release/net8.0/TaskManagement.Domain.sourcelink.json
+/Users/doryaslav/RiderProjects/TaskManagement/TaskManagement.Domain/obj/Release/net8.0/TaskManagement.Domain.dll
+/Users/doryaslav/RiderProjects/TaskManagement/TaskManagement.Domain/obj/Release/net8.0/refint/TaskManagement.Domain.dll
+/Users/doryaslav/RiderProjects/TaskManagement/TaskManagement.Domain/obj/Release/net8.0/TaskManagement.Domain.pdb
+/Users/doryaslav/RiderProjects/TaskManagement/TaskManagement.Domain/obj/Release/net8.0/ref/TaskManagement.Domain.dll
