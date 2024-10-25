@@ -112,9 +112,9 @@ Each layer is designed to be independent and decoupled from others, making the s
 
 ## Planned Features
 
-- **Task Filtering:** Allow filtering of tasks based on status, due date, and priority.
-- **Sorting:** Implement sorting options for tasks based on due date and priority.
-- **Pagination:** Add pagination for the `GET /tasks` endpoint to support large datasets.
+- **Task Filtering:** Allow filtering of tasks based on status, due date, and priority. ✅
+- **Sorting:** Implement sorting options for tasks based on due date and priority. ✅
+- **Pagination:** Add pagination for the `GET /tasks` endpoint to support large datasets. ✅
 - **Unit Testing:** Implement unit tests for key components such as the service layer and repository layer.
 - **CI/CD:** Set up a basic CI/CD pipeline (e.g., using GitHub Actions) to automate build and testing.
 - **Docker:** Add Docker support to containerize the application for easier deployment.
