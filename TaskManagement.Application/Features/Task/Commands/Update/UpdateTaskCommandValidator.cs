@@ -11,7 +11,7 @@ public class UpdateTaskCommandValidator : AbstractValidator<UpdateTaskCommand>
             .WithMessage("Title is required.");
 
         RuleFor(x => x.Description)
-            .NotEmpty().WithMessage("Description is required");
+            .NotEmpty().WithMessage("Description is required.");
 
         RuleFor(x => x.DueDate)
             .GreaterThanOrEqualTo(DateTime.UtcNow)
