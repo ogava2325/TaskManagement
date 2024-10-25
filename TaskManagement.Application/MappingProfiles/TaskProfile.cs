@@ -1,4 +1,6 @@
 using AutoMapper;
+using TaskManagement.Application.Features.Task.Commands.Create;
+using TaskManagement.Application.Features.Task.Commands.Update;
 using TaskManagement.Application.Features.Task.Queries.GetAllTasksByUserId;
 using TaskManagement.Application.Features.Task.Queries.GetTaskDetails;
 using Task = TaskManagement.Domain.Entities.Task;
@@ -9,10 +11,10 @@ public class TaskProfile : Profile
 {
     public TaskProfile()
     {
+        CreateMap<CreateTaskCommand, Task>();
+        CreateMap<UpdateTaskCommand, Task>();
+        
         CreateMap<Task, TaskDto>().ReverseMap();
-        CreateMap<Task, TaskDetailsDto>()
-            .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()))
-            .ForMember(dest => dest.Priority, opt => opt.MapFrom(src => src.Priority.ToString()))
-            .ReverseMap();
+        CreateMap<Task, TaskDetailsDto>().ReverseMap();
     }
 }

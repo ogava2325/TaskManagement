@@ -1,26 +1,21 @@
+using AutoMapper;
 using MediatR;
 using TaskManagement.Domain.Repositories;
 
 namespace TaskManagement.Application.Features.Task.Commands.Create;
 
 public class CreateTaskCommandHandler(
+    IMapper mapper,
     ITaskRepository taskRepository)
     : IRequestHandler<CreateTaskCommand, Guid>
 {
+    private readonly IMapper _mapper = mapper;
     private readonly ITaskRepository _taskRepository = taskRepository;
 
     public async Task<Guid> Handle(CreateTaskCommand request, CancellationToken cancellationToken)
     {
-        var task = new Domain.Entities.Task
-        {
-            Title = request.Title,
-            Description = request.Description,
-            DueDate = request.DueDate,
-            Priority = request.Priority,
-            Status = request.Status,
-            UserId = request.UserId
-        };
-
+        var task = _mapper.Map<Domain.Entities.Task>(request);
+        
         await _taskRepository.CreateAsync(task);
 
         return task.Id;
