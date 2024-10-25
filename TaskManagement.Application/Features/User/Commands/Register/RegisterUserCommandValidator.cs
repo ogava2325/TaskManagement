@@ -12,8 +12,7 @@ public class RegisterUserCommandValidator : AbstractValidator<RegisterUserComman
 
         RuleFor(x => x.Email)
             .NotEmpty().WithMessage("Email is required.")
-            .EmailAddress().WithMessage("Invalid email format.")
-            .MustAsync(IsEmailUnique).WithMessage("Email is already taken.");
+            .EmailAddress().WithMessage("Invalid email format.");
 
         RuleFor(x => x.Password)
             .NotEmpty().WithMessage("Password is required.")
@@ -23,17 +22,17 @@ public class RegisterUserCommandValidator : AbstractValidator<RegisterUserComman
             .Matches("[0-9]").WithMessage("Password must contain at least one digit.")
             .Matches("[^a-zA-Z0-9]").WithMessage("Password must contain at least one special character.");
 
-        RuleFor(x => x.Username)
-            .NotEmpty().WithMessage("Username is required.")
-            .MustAsync(IsUsernameUnique).WithMessage("Username is already taken.");
+        RuleFor(q => q)
+            .MustAsync(IsUsernameUnique).WithMessage("Username is already taken.")
+            .MustAsync(IsEmailUnique).WithMessage("Email is already taken.");
     }
 
-    private async Task<bool> IsUsernameUnique(string username, CancellationToken cancellationToken)
+    private async Task<bool> IsUsernameUnique(RegisterUserCommand command, CancellationToken cancellationToken)
     {
-        return await _userRepository.IsUsernameUnique(username);
+        return await _userRepository.IsUsernameUnique(command.Username);
     }
-    private async Task<bool> IsEmailUnique(string email, CancellationToken cancellationToken)
+    private async Task<bool> IsEmailUnique(RegisterUserCommand command, CancellationToken cancellationToken)
     {
-        return await _userRepository.IsEmailUnique(email);
+        return await _userRepository.IsEmailUnique(command.Email);
     }
 }
