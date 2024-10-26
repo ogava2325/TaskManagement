@@ -5,14 +5,14 @@ using TaskManagement.Domain.Repositories;
 
 namespace TaskManagement.Application.Tests.Commands.User;
 
-public class LoginCommandHandlerTests
+public class LoginUserCommandHandlerTests
 {
     private readonly Mock<IUserRepository> _userRepositoryMock;
     private readonly Mock<IJwtTokeProvider> _jwtTokenProviderMock;
     private readonly Mock<IPasswordHasherService> _passwordHasherMock;
     private readonly LoginUserCommandHandler _handler;
 
-    public LoginCommandHandlerTests()
+    public LoginUserCommandHandlerTests()
     {
         _userRepositoryMock = new Mock<IUserRepository>();
         _jwtTokenProviderMock = new Mock<IJwtTokeProvider>();
